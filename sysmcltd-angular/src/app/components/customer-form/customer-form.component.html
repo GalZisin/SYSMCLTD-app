@@ -1,0 +1,41 @@
+<div class="p-8 mt-4">
+  <div class="shadow p-6">
+    @if(isEdit){
+    <h4>Edit Customer Detail</h4>
+    }@else {
+    <h4>Create Customer</h4>
+    }
+    <form [formGroup]="customerForm" (ngSubmit)="save()">
+      <div class="w-full flex flex-wrap">
+        <mat-form-field class="w-full">
+          <mat-label>Name</mat-label>
+          <input type="text" matInput placeholder="Name" formControlName="name" />
+        </mat-form-field>
+      </div>
+      <div class="w-full flex flex-wrap">
+        <mat-form-field class="w-full">
+          <mat-label>CustomerNumber</mat-label>
+          <input type="number" matInput placeholder="Customer Number" formControlName="customerNumber" />
+          @if (f['customerNumber'].errors && (f['customerNumber'].dirty || f['customerNumber'].touched)) {
+          <div class="invalid-feedback">
+            @if (f['customerNumber'].errors['pattern']) {
+            <div>customer number must be 9 digits</div>
+            }
+          </div>
+          }
+        </mat-form-field>
+      </div>
+      <div class="flex justify-center">
+        @if(isEdit){
+        <button mat-raised-button color="primary" [disabled]="!customerForm.valid">
+          Update
+        </button>
+        }@else {
+        <button mat-raised-button color="primary" [disabled]="!customerForm.valid">
+          Add
+        </button>
+        }
+      </div>
+    </form>
+  </div>
+</div>

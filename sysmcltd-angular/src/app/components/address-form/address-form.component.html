@@ -1,0 +1,34 @@
+<div class="p-8 mt-4">
+    <div class="shadow p-6">
+      @if(isEdit){
+      <h4>Edit Address</h4>
+      }@else {
+      <h4>Create Adress</h4>
+      }
+      <form [formGroup]="addressForm" (ngSubmit)="save()">
+        <div class="w-full flex flex-wrap">
+          <mat-form-field class="w-full">
+            <mat-label>City</mat-label>
+            <input type="text" matInput placeholder="City" formControlName="city" />
+          </mat-form-field>
+        </div>
+        <div class="w-full flex flex-wrap">
+          <mat-form-field class="w-full">
+            <mat-label>Street</mat-label>
+            <input type="text" matInput placeholder="Street" formControlName="street" />
+          </mat-form-field>
+        </div>
+        <div class="flex justify-center">
+          @if(isEdit){
+          <button mat-raised-button color="primary" [disabled]="!addressForm.valid">
+            Update
+          </button>
+          }@else {
+          <button mat-raised-button color="primary" [disabled]="!addressForm.valid">
+            Add
+          </button>
+          }
+        </div>
+      </form>
+    </div>
+  </div>
