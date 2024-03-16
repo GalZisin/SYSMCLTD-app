@@ -1,4 +1,4 @@
-import { Component, OnDestroy, inject } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { HttpService } from '../../services/http.service';
 import { Address } from '../../interfaces/address';
@@ -8,7 +8,6 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { ToastrService } from 'ngx-toastr';
 import { AppService } from '../../services/app.service';
-import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-customer-details',

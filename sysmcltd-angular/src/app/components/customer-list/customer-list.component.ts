@@ -1,11 +1,10 @@
-import { Component, OnDestroy, inject } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { MatTableModule } from '@angular/material/table';
 import { MatButtonModule } from '@angular/material/button';
 import { Router, RouterLink } from '@angular/router';
 import { Customer } from '../../interfaces/customer';
 import { ToastrService } from 'ngx-toastr';
 import { HttpService } from '../../services/http.service';
-import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-customer-list',
@@ -21,9 +20,6 @@ export class CustomerListComponent {
   toaster = inject(ToastrService);
   customerList: Customer[] = [];
 
-  getAllCustomersSubscription!: Subscription;
-  deletCustomerSubscription!: Subscription;
-
   displayedColumns: string[] = [
     'id',
     'name',
@@ -33,6 +29,7 @@ export class CustomerListComponent {
   ];
 
   ngOnInit() {
+    console.log("customerLIst is loaded");
     this.getCustomersFromServer();
   }
 

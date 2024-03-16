@@ -52,7 +52,7 @@ namespace sysmcltdAPI.Data
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public Task<Customer> GetCustomerDataByIdAsync(int customerId)
+        public async Task<Customer> GetCustomerDataByIdAsync(int customerId)
         {
             var customerData = _appDbContext.Customers
          .Where(c => c.Id == customerId)
@@ -66,7 +66,7 @@ namespace sysmcltdAPI.Data
          })
          .FirstOrDefault();
 
-            return Task.FromResult(customerData ?? throw new Exception("Customer not found"));
+            return await Task.FromResult(customerData ?? throw new Exception("Customer not found"));
         }
         /// <summary>
         /// Update customer details

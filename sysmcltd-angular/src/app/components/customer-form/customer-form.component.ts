@@ -76,7 +76,7 @@ export class CustomerFormComponent {
     } else {
       this.httpService.createCustomer(customer).subscribe(() => {
         console.log('success');
-        // this.toaster.success("Record added sucessfully.");
+        this.toaster.success("Record added sucessfully.");
         this.router.navigateByUrl('/customers');
       });
     }
